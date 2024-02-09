@@ -1,4 +1,8 @@
 Array.prototype.reducer = function (fn, init = 0) {
+  if (!(this.length >= 0 && this.length <= 1000))
+    throw new TypeError("Length should be between 0:1000");
+  if (!(init >= 0 && init <= 1000))
+    throw new TypeError("Initial Value should be between 0:1000");
   if (this.length === 0) return init;
   let val;
   if (init === 0) {
