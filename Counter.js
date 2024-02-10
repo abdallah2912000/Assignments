@@ -1,17 +1,27 @@
 let n = 10;
 
-counter = function (init, counter) {
-  let calls = [init];
-  if (isNaN(init)) throw new TypeError("input must be integer number");
-  if (!(init >= -1000 && init <= 1000))
-    throw new TypeError("Range must be between -1000 & 1000");
-  if (!(counter >= 0 && counter <= 1000))
-    throw new TypeError("Array length must be between 0 : 1000");
-  for (let i = 0; i < counter - 1; i++) {
-    init++;
-    calls.push(init);
-  }
-  return calls;
+counter = (num) => {
+  let init = num - 1;
+  let arr = [];
+  const value = () => {
+    init += 1;
+    arr.push(init);
+    return arr;
+  };
+  if (!(num >= -1000 && num <= 1000))
+    throw new TypeError("-1000 <= number <= 1000");
+  if (!(arr.length >= 0 || arr.length <= 1000))
+    throw new TypeError("0 <= calls.length <= 1000");
+  return value;
 };
 
-console.log(counter(10, 10));
+const init = counter(n);
+init();
+init();
+init();
+init();
+init();
+let value = init();
+console.log(value);
+console.log(value[0]);
+console.log(value[1]);
